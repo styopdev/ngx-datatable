@@ -1,0 +1,15 @@
+body {
+  background-color: #efefef;
+}
+
+.date-filters .ui-calendar{
+  width: 100%;
+}
+
+.date-filters .ui-calendar input {
+  width: 100px;
+}
+
+button[hidden] {
+  display: none!important;
+}

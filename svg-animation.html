@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    
+    .spinner {
+      animation: rotate 1.4s linear infinite;
+      width:120px;
+      height:120px;
+      position: relative;
+    }
+
+    @keyframes rotate {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .path {
+      stroke-dasharray: 170;
+      stroke-dashoffset: 20;
+    }
+
+  </style>
+</head>
+<body>
+  <svg class="spinner" width="120px" height="120px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+    <circle class="path" fill="transparent" stroke-width="2" cx="33" cy="33" r="30" stroke="url(#gradient)"/>
+      <linearGradient id="gradient">
+        <stop offset="50%" stop-color="#42d179" stop-opacity="1"/>
+        <stop offset="65%" stop-color="#42d179" stop-opacity=".5"/>
+        <stop offset="100%" stop-color="#42d179" stop-opacity="0"/>
+      </linearGradient>
+   </circle>
+ </svg> 
+</body>
+</html>

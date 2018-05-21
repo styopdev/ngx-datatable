@@ -1,0 +1,25 @@
+<div class="pagination-wrapper" *ngIf="pages.length > 1">
+  <div class="pagination-buttons">
+    <button [hidden]="page <= 3" type="button" (click)="goFirstPage()">
+      <i class="fa fa-fast-backward"></i>
+    </button>
+    <button [hidden]="page === 1" type="button" (click)="previousPage()">
+      <i class="fa fa-step-backward"></i>
+    </button>
+    <button *ngFor="let pageIndex of pages" [ngClass]="{'active': pageIndex === page }" (click)="goToPage(pageIndex)">
+      {{ pageIndex }}
+    </button>
+    <button [hidden]="page >= pagesCount" type="button" (click)="nextPage()">
+      <i class="fa fa-step-forward"></i>
+    </button>
+    <button [hidden]="page >= pagesCount - 1"  type="button" (click)="goLastPage()">
+      <i class="fa fa-fast-forward"></i>
+    </button>
+    <p-dropdown 
+      [style]="{'margin-left': '5px'}"
+      [options]="itemsCountOptions" 
+      (onChange)="itemsCountChanged($event.value)"
+    >
+    </p-dropdown>
+  </div>
+</div>

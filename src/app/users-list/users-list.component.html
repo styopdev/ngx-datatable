@@ -1,0 +1,67 @@
+<div class="table-wrapper" *ngIf="usersReady">
+  <table class="users-list">
+    <thead>
+      <tr>
+        <th style="width:10%">Firstname</th>
+        <th style="width:10%">Lastname</th>
+        <th style="width:10%">Gender</th>
+        <th style="width:18%">Dob</th>
+        <th style="width:10%">City</th>
+        <th style="width:12%">Phone</th>
+        <th style="width:20%">Email</th>
+      </tr>
+      <tr>
+        <th>
+          <input type="text" pInputText [(ngModel)]="firstNameFilter" (ngModelChange)="applyFilters()">
+        </th>
+        <th></th>
+        <th></th>
+        <th>
+          <div class="date-filters">
+            <p-calendar 
+              placeholder="from" [(ngModel)]="startDate" 
+              (ngModelChange)="applyFilters()"
+              [monthNavigator]="true" [yearNavigator]="true" 
+              yearRange="1940:2018"
+            >
+            </p-calendar>
+            <p-calendar 
+              placeholder="to" [(ngModel)]="endDate" 
+              (ngModelChange)="applyFilters()"
+              [monthNavigator]="true" [yearNavigator]="true" 
+              yearRange="1940:2018"
+            >
+            </p-calendar>
+          </div>
+        </th>
+        <th>
+          <input type="text" pInputText [(ngModel)]="cityNameFilter" (ngModelChange)="applyFilters()">
+        </th>
+        <th>
+          <input type="number" pInputText [(ngModel)]="phoneNumberFilter" (ngModelChange)="applyFilters()">
+        </th>
+        <th>
+          <button class="clear-filters" type="button" (click)="clearFilters()">Clear filters</button>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of currentPageItems; let even=even" [ngClass]="{'row-even' : even}">
+        <td>{{ user.name.first }}</td>
+        <td>{{ user.name.last }}</td>
+        <td>{{ user.gender }}</td>
+        <td>{{ user.dob | date:'longDate' }}</td>
+        <td>{{ user.location.city }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.email }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination 
+    [itemsToShow]="rowsCount"
+    (pageChanged)="changePage($event)"
+    [page]="currentPage"
+    (rowsCountChanged)="changeRowsCount($event)"
+    [itemsLength]="totalItems">
+  </pagination>
+</div>

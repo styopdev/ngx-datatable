@@ -1,0 +1,32 @@
+.pagination-wrapper {
+  margin-top: 10px;
+}
+
+.pagination-buttons {
+  text-align: center;
+}
+
+.pagination-buttons button {
+  color: inherit;
+  background: #fff;
+  border: 1px solid #e7eaec;
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination-buttons button:focus {
+  outline: 0;
+}
+
+.pagination-buttons button.active {
+  background: #186ba0;
+  color: #ffffff;
+}
