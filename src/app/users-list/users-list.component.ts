@@ -123,6 +123,7 @@ export class UserListComponent implements OnInit {
     this.startDate = '';
     this.endDate = '';
     this.filteredItems = this.users;
+    this.currentPage = 1;
     this.initItems();
   }
 }
